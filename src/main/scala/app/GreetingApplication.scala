@@ -14,12 +14,12 @@ object GreetingApplication extends App {
   val deposited=cashISASavingsAccount.deposit(1000.00)
   val withDrawn=deposited.withDraw(200.00)
 
-  val person=new Person(name,age.toInt,withDrawn)
+  val person=new Person(name,age.toInt,List(withDrawn))
   println(person.speak())
 
   val normalAccount=new CashISASavingsAccount("12334",100.00)
   val loyalAccountDeposited=normalAccount.deposit(300.00)
-  val loyal=new Person("loyal customer",22,loyalAccountDeposited)
+  val loyal=new Person("loyal customer",22,List(loyalAccountDeposited))
   loyal.speak()
 
 }
