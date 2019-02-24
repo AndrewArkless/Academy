@@ -1,6 +1,7 @@
 package app
 
-import Prompt._
+import app.Prompt._
+import app.models.{CashISASavingsAccount, Person}
 
 object GreetingApplication extends App {
 
