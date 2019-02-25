@@ -19,11 +19,12 @@ object PetRepository {
     case c @ Cat(_,_)=>Some(c)
     case _ => None
   }
-//  def other():List[Pet]=_pets.toList.flatMap{
-//    case c @ Cat(_,_)=>None
-//    case d @ Dog(_,_)=>None
-//    case x @ =>Some(x)
-//  }
+  def other():List[Pet]=_pets.toList.flatMap{
+    case c @ Cat(_,_)=>None
+    case d @ Dog(_,_)=>None
+    case x @ _ =>Some(x)
+  }
+
   def add(pet: Pet*):List[Pet]={
        (_pets ++= pet).toList
   }
