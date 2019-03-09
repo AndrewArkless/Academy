@@ -55,5 +55,6 @@ object petTest extends App {
   println(PetRepository.removeByName("AAA"))
   println(PetRepository.update(e))
   println(PetRepository.all())
+  val x=PetRepository.findByName("AAA")
 
 }

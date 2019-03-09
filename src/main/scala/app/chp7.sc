@@ -58,5 +58,7 @@ x.map(doublePlusOne)
 x.map(doublePlusOneComposed)
 
 
+doublePlusOne(2)
 
+doublePlusOneComposed(2)
 
