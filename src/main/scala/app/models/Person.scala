@@ -1,11 +1,35 @@
 package app.models
 
+
+
+
 /**
   * Created by andrew on 24/02/19.
   */
-class Person(name:String, age:Int, private val bankAccount: Seq[BankAccount]=Nil){
+//object getTime extends getTime {
+//  def now = "Saturday"
+//}
 
-  private val excluded=List("adam","daniel")
+//object getTime extends getTime {
+//  def now="Saturday"
+//}
+//
+object getTime extends getTime
+{
+  override val clock="Saturday"
+}
+trait getTime {
+  val clock:String
+}
+
+//trait Person1 {
+//  def clock:getTime
+//}
+
+class Person(name:String, age:Int, private val bankAccount: Seq[BankAccount]=Nil) extends getTime
+{
+
+   private val excluded=List("adam","daniel")
 
   def this(name:String,age:Int)=
   {
@@ -23,9 +47,11 @@ class Person(name:String, age:Int, private val bankAccount: Seq[BankAccount]=Nil
 
   def speak():String ={
     if (excluded.contains(name)) {
-      s"you don't get a hello"
+      s"you don't get a hello ${getTime.clock}"
     } else {
       s"Hello $name you are $age $years old \n and your bank details are $bankAccount"
     }
   }
+
+  override val clock: String = getTime.clock
 }
