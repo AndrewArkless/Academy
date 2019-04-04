@@ -14,7 +14,7 @@ package app.models
 //  def now="Saturday"
 //}
 //
-object getTime extends getTime
+class realGetTime extends getTime
 {
   override val clock="Saturday"
 }
@@ -26,8 +26,9 @@ trait getTime {
 //  def clock:getTime
 //}
 
-class Person(name:String, age:Int, private val bankAccount: Seq[BankAccount]=Nil) extends getTime
+class Person(name:String, age:Int, private val bankAccount: Seq[BankAccount]=Nil)
 {
+   val timer = new realGetTime
 
    private val excluded=List("adam","daniel")
 
@@ -47,11 +48,11 @@ class Person(name:String, age:Int, private val bankAccount: Seq[BankAccount]=Nil
 
   def speak():String ={
     if (excluded.contains(name)) {
-      s"you don't get a hello ${getTime.clock}"
+      s"you don't get a hello ${timer.clock}"
     } else {
       s"Hello $name you are $age $years old \n and your bank details are $bankAccount"
     }
   }
 
-  override val clock: String = getTime.clock
+
 }

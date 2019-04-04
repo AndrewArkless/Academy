@@ -62,3 +62,13 @@ doublePlusOne(2)
 
 doublePlusOneComposed(2)
 
+val vowels=new PartialFunction[Char,Char]{
+  def apply(s:Char)=s.toUpper
+  def isDefinedAt(s:Char)=List('a','e','i').contains(s)
+
+}
+
+
+if (vowels.isDefinedAt('b')) vowels('b')
+
+List('a','e','i').contains('a')
